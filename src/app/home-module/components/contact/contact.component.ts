@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'home-contact',
@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class ContactComponent {
 
+  @Input()
+  public email: string = "";
+  @Input()
+  public phone: string = "";
+  @Input()
+  public location: string = "";
 }

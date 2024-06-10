@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+
 
 @Component({
   selector: 'homecard',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class HomecardComponent {
 
+  @Input()
+  public serviceName:string = "";
+  @Input()
+  public serviceDescription1:string = "";
+  @Input()
+  public serviceDescription2:string = "";
+  @Input()
+  public serviceIcon:string = "";
 }

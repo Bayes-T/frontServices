@@ -17,24 +17,40 @@
   </div>
 
   <div class="header__title">
-    <h1>Juana Rodríguez - Psicóloga Clínica</h1>
+    <h1>{{title}}</h1>
   </div>
   </header>
 
   <div class="container">
     <div id="grid">
   <aside class="contact">
-    <home-contact></home-contact>
+    <home-contact [email]="email" [phone]="phone" [location]="location"></home-contact>
   </aside>
   <main class="mainContent">
-    <h1>MAIN CONTENT</h1>
-    <homecard></homecard>
+    <homecard *ngFor="let service of services" [serviceName]="service.serviceName" [serviceDescription1]="service.serviceDescription1" [serviceDescription2]="service.serviceDescription2" [serviceIcon]="service.serviceIcon"></homecard>
   </main>
   <div class="chat">
-    <home-chat></home-chat>
+    <home-chat [phone]="phone"></home-chat>
   </div>
+
+</div>
+</div>
+
   <footer class="footer">
-    <H1>FOOTER</H1>
+    <div class="footer__icons">
+      <mat-icon>email</mat-icon>
+      <mat-icon>local_phone</mat-icon>
+      <mat-icon>web</mat-icon>
+    </div>
+
+    <div class="footer__menu">
+      <p>Home</p>
+      <p>Contacto</p>
+      <p>Pagos</p>
+      <p>Ayuda</p>
+    </div>
+
+    <p>&copy;2024 ServFrontend | All Rights Reserved</p>
+
   </footer>
-</div>
-</div>
+
