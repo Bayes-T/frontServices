@@ -1,0 +1,32 @@
+/** Icons **/
+
+.content_icons {
+  display: flex;
+  font-size: 1.2rem;
+}
+
+.content_icons:first-of-type {
+  margin-top: 1.5rem;
+}
+
+.content_icons:last-of-type {
+  margin-bottom: 1.5rem;
+}
+
+mat-icon {
+  margin-right: 1rem;
+}
+
+/** Agendar **/
+
+.agendar {
+  display: flex;
+  flex-direction: column;
+}
+
+.agendar__button {
+  margin: 1rem 0;
+  background: var(--primary-color);
+  padding: 1.3rem;
+  font-size: 1rem;
+}
