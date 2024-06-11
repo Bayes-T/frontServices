@@ -41,9 +41,14 @@ mat-icon {
   flex-direction: column;
 }
 
-.agendar__button {
+.agendar:hover svg, .agendar:hover button{
+  transform:scale(1.1);
+}
+
+#agendarButton{
   margin: 1rem 0;
-  background: var(--primary-color);
+  background-color: var(--primary-color);
   padding: 1.3rem;
   font-size: 1rem;
+  color: #ffffff;
 }

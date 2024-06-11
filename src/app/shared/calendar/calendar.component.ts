@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/core'; // useful for typechecking
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+
 
 @Component({
   selector: 'app-calendar',
@@ -9,13 +11,19 @@ import interactionPlugin from '@fullcalendar/interaction';
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent {
+  constructor(public dialogRef: MatDialogRef<CalendarComponent>) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
   calendarOptions: CalendarOptions = {
-    initialView: 'dayGridMonth',
+    initialView: 'dayGridWeek',
     plugins: [dayGridPlugin, interactionPlugin],
     dateClick: (arg) => this.handleDateClick(arg),
     events: [
-      { title: 'event 1', date: '2019-04-01' },
-      { title: 'event 2', date: '2019-04-02' }
+      {title: 'event3', start: '2024-06-09T12:30:00', end: '2024-06-09T13:30:00'},
+      {title: 'Libre', start: '2024-06-09T13:30:00', end: '2024-06-09T14:30:00'}
     ]
   };
 

@@ -2,7 +2,18 @@
   display: flex;
   justify-content: center;
 }
+
 .agendar__button {
   background-color: var(--primary-color);
   color: #ffffff;
+  width: 12rem;
+}
+
+.buttonDisplay {
+  display: flex;
+  justify-content: center;
+}
+
+.example-card:hover button {
+  transform:scale(1.1);
 }
