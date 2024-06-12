@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CalendarComponent } from './calendar/calendar.component';
 import {FullCalendarModule} from "@fullcalendar/angular";
+import {HttpClientModule} from "@angular/common/http";
 
 
 
@@ -11,7 +12,8 @@ import {FullCalendarModule} from "@fullcalendar/angular";
   ],
   imports: [
     CommonModule,
-    FullCalendarModule
+    FullCalendarModule,
+    HttpClientModule
   ]
 })
 export class SharedModule { }

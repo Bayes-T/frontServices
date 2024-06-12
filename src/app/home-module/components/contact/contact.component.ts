@@ -20,8 +20,8 @@ export class ContactComponent {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(CalendarComponent, {
-      height: '500px',
-      width: '600px',
+      height: '650px',
+      width: '1500px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -29,12 +29,6 @@ export class ContactComponent {
     })
   }
 
-  Agendar(){
-    // let dialogRef = dialog.open(CalendarComponent, {
-    //   height: '400px',
-    //   width: '600px',
-    // });
-  }
 }
 
 

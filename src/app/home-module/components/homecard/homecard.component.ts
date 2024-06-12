@@ -16,7 +16,7 @@ export class HomecardComponent {
   openDialog(): void {
     const dialogRef = this.dialog.open(CalendarComponent, {
       height: '650px',
-      width: '800px',
+      width: '1500px',
     });
 
     dialogRef.afterClosed().subscribe(result => {

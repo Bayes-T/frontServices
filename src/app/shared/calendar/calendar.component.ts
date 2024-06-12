@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/core'; // useful for typechecking
-import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import timeGridPlugin from '@fullcalendar/timegrid';
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 
 
@@ -18,18 +18,31 @@ export class CalendarComponent {
   }
 
   calendarOptions: CalendarOptions = {
-    initialView: 'dayGridWeek',
-    plugins: [dayGridPlugin, interactionPlugin],
-    dateClick: (arg) => this.handleDateClick(arg),
+      plugins: [timeGridPlugin, interactionPlugin],
+      initialView: 'timeGridWeek',
+      weekends: false,
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'timeGridWeek,timeGridDay',
+      },
+      slotMinTime: '08:00',
+      slotMaxTime: '18:00',
+      allDaySlot: false,
+      slotEventOverlap: false,
+      height: 'auto',
+      dateClick: (arg) => this.handleDateClick(arg),
     events: [
-      {title: 'event3', start: '2024-06-09T12:30:00', end: '2024-06-09T13:30:00'},
-      {title: 'Libre', start: '2024-06-09T13:30:00', end: '2024-06-09T14:30:00'}
-    ]
+      {id : '1', title: 'event3', start: '2024-06-10T12:30:00', allDay: false, end: '2024-06-09T13:00:00', color: '#ff0000'},
+      {id : '1', title: 'Libre', start: '2024-06-10T13:30:00', allDay: false, end: '2024-06-09T14:30:00'}
+    ],
+    eventColor: '#378006'
   };
 
   handleDateClick(arg:any) {
+    //en ONINIT llenar el array eventos desde el servidor
     //enviar peticion http para agendar cita
-    //hacer que se vea en el calendario
-    alert('date click! ' + arg.dateStr)
+    alert('date click! ' + arg.date)
   }
 }
+
