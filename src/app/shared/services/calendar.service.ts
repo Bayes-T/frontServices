@@ -10,6 +10,11 @@ export class CalendarService {
 
   private baseURL:string = ""
 
+  public date:string = "";
+  setDate(mydate:string):void {
+    this.date=mydate;
+  }
+
   constructor(private http: HttpClient) { }
 
   getAppointments(): Observable<Appointment[]>{

@@ -1,8 +1,12 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/core'; // useful for typechecking
 import interactionPlugin from '@fullcalendar/interaction';
 import timeGridPlugin from '@fullcalendar/timegrid';
-import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {ActivatedRoute} from "@angular/router";
+import {delay, switchMap} from "rxjs";
+import {CalendarService} from "../services/calendar.service";
+import {MatDialog} from "@angular/material/dialog";
+import {AgendarDialogComponent} from "../agendar-dialog/agendar-dialog.component";
 
 
 @Component({
@@ -10,11 +14,24 @@ import {MatDialog, MatDialogRef} from "@angular/material/dialog";
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css']
 })
-export class CalendarComponent {
-  constructor(public dialogRef: MatDialogRef<CalendarComponent>) { }
+export class CalendarComponent implements OnInit{
+  constructor(private calendarService: CalendarService, private activatedRoute: ActivatedRoute, public dialog: MatDialog) { }
 
-  onNoClick(): void {
-    this.dialogRef.close();
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AgendarDialogComponent, {
+      data: this.date,
+      height: '250px',
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  //Obtener los eventos
+  ngOnInit(): void {
+    this.calendarService.getAppointments().subscribe(resp => this.calendarOptions.events)
   }
 
   calendarOptions: CalendarOptions = {
@@ -33,16 +50,20 @@ export class CalendarComponent {
       height: 'auto',
       dateClick: (arg) => this.handleDateClick(arg),
     events: [
-      {id : '1', title: 'event3', start: '2024-06-10T12:30:00', allDay: false, end: '2024-06-09T13:00:00', color: '#ff0000'},
-      {id : '1', title: 'Libre', start: '2024-06-10T13:30:00', allDay: false, end: '2024-06-09T14:30:00'}
+      {id : '1', title: 'event3', start: '2024-06-10T12:30:00', allDay: false, end: '2024-06-09T13:00:00', color: '#247AFD.'},
     ],
-    eventColor: '#378006'
+    eventColor: '#247AFD'
   };
 
+  public date:string = "";
+
   handleDateClick(arg:any) {
-    //en ONINIT llenar el array eventos desde el servidor
-    //enviar peticion http para agendar cita
-    alert('date click! ' + arg.date)
+    alert('¿Deseas agendar en ' + arg.date + ' ?')
+    this.date = arg.date;
+    //pipe de arg date
+    this.openDialog()
   }
+
+
 }
 

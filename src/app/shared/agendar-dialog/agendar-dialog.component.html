@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>Agendar cita</h2>
+<mat-dialog-content>
+  <p>Fecha:  {{data | datearg}} </p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button color="warn" (click)="onNoClick()">Atrás</button>
+  <button mat-button color="primary" (click)="Agendar(data)">Ir a pagar</button>
+</mat-dialog-actions>
+

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {CalendarComponent} from "./shared/calendar/calendar.component";
+import {PayFormComponent} from "./shared/pay-form/pay-form.component";
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'calendar',
     component: CalendarComponent
+  },
+  {
+    path: 'payform',
+    component: PayFormComponent
   },
   {
     path: '**',

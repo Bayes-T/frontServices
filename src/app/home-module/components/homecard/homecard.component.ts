@@ -10,19 +10,9 @@ import {CalendarComponent} from "../../../shared/calendar/calendar.component";
 })
 export class HomecardComponent {
 
-  constructor(public dialog: MatDialog) {
+  constructor() {
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(CalendarComponent, {
-      height: '650px',
-      width: '1500px',
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log("The dialog was closed")
-    })
-  }
 
   @Input()
   public serviceName:string = "";

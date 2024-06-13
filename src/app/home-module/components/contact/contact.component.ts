@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {CalendarComponent} from "../../../shared/calendar/calendar.component";
-import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+
 
 @Component({
   selector: 'home-contact',
@@ -9,7 +9,7 @@ import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 })
 export class ContactComponent {
 
-  constructor(public dialog: MatDialog) { }
+  constructor() { }
 
   @Input()
   public email: string = "";
@@ -17,17 +17,6 @@ export class ContactComponent {
   public phone: string = "";
   @Input()
   public location: string = "";
-
-  openDialog(): void {
-    const dialogRef = this.dialog.open(CalendarComponent, {
-      height: '650px',
-      width: '1500px',
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log("The dialog was closed")
-    })
-  }
 
 }
 

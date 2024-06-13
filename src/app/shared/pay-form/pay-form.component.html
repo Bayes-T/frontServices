@@ -1,0 +1,23 @@
+
+<div class="container">
+<mat-card id="payform" [formGroup]="payForm" >
+<mat-form-field >
+  <mat-label>Tu nombre</mat-label>
+  <input matInput formControlName="name"  >
+</mat-form-field>
+<mat-form-field>
+  <mat-label>¿Qué servicio quieres agendar?</mat-label>
+  <textarea matInput formControlName="service"  ></textarea>
+</mat-form-field>
+<mat-form-field>
+  <input matInput formControlName="date" >
+</mat-form-field>
+<p>Precio total: $$$</p>
+  <mat-card-actions align="end">
+    <button mat-button color="warn">Atrás</button>
+    <button mat-button color="primary" (click)="onSave()">Agendar</button>
+  </mat-card-actions>
+</mat-card>
+
+</div>
+
